@@ -4,7 +4,11 @@
 
 >Note: You are currently viewing the testing branch. Expect bugs!
 
+## About
+
 SchoolTools is an app built in PowerShell aiming to allow the user to change between light and dark mode, as well as change the wallpaper.
+
+The app gets past school-set restrictions on Windows-based school assigned devices. Ever notice how some options on the settings menu are blocked? This app aims to be a replacement to these blocked settings.
 ## How it's done
 ### Dark/Light mode
 The switch is done relatively simply. The app edits 2 registry keys, SystemUsesLightTheme and AppsUseLightTheme. These will be set to 1 for light mode and 0 for dark mode. After, it restarts explorer.exe.
