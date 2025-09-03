@@ -1,0 +1,12 @@
+# SchoolTools
+### By Nerdiest
+#### _Because personalization shouldn't be blocked_
+
+SchoolTools is an app built in PowerShell aiming to allow the user to change between light and dark mode, as well as change the wallpaper.
+## How it's done
+### Dark/Light mode
+The switch is done relatively simply. The app edits 2 registry keys, SystemUsesLightTheme and AppsUseLightTheme. These will be set to 1 for light mode and 0 for dark mode. After, it restarts explorer.exe.
+> Note: These keys are edited locally, and won't affect other users.
+### Wallpaper Switch
+This one is a lot more complicated. If you choose one of the default wallpapers, then they will be set from the apps files. Otherwise, you can choose your own. The app copies the file to `APPDATA\Microsoft\Windows\Themes\` and renames it to `TranscodedWallpaper`, which overrides your image data for the current wallpaper. After, it restarts explorer.exe to show your changes.
+> Note: If your device changes screen orientation from landscape to portrait, your wallpaper will be reset and you will have to use the app again to fix it. We are working on a fix to this now.
