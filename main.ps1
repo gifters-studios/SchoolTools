@@ -1,5 +1,6 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
+[System.Windows.Forms.Application]::EnableVisualStyles()
 
 $Form = New-Object System.Windows.Forms.Form
 $Form.Text = "SchoolTools By Nerdiest"
