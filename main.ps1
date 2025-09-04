@@ -65,7 +65,7 @@ $Button2.Add_Click({
 })
 
 $Button3.Add_Click({
-    Copy-Item -Path .\light.jpg -Destination $env:APPDATA\Microsoft\Windows\Themes -Force
+    Copy-Item -Path .\default\light.jpg -Destination $env:APPDATA\Microsoft\Windows\Themes -Force
     Remove-Item -Path "$env:APPDATA\Microsoft\Windows\Themes\TranscodedWallpaper" 
     Rename-Item -Path "$env:APPDATA\Microsoft\Windows\Themes\light.jpg" -NewName "TranscodedWallpaper" -Force
     Stop-Process -Name explorer -Force
@@ -73,7 +73,7 @@ $Button3.Add_Click({
 })
 
 $Button4.Add_Click({
-    Copy-Item -Path .\dark.jpg -Destination $env:APPDATA\Microsoft\Windows\Themes -Force
+    Copy-Item -Path .\default\dark.jpg -Destination $env:APPDATA\Microsoft\Windows\Themes -Force
     Remove-Item -Path "$env:APPDATA\Microsoft\Windows\Themes\TranscodedWallpaper" 
     Rename-Item -Path "$env:APPDATA\Microsoft\Windows\Themes\dark.jpg" -NewName "TranscodedWallpaper" -Force
     Stop-Process -Name explorer -Force
