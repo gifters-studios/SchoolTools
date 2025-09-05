@@ -51,6 +51,11 @@ $Button5.Text = "Custom Wallpaper"
 $Button5.Location = New-Object System.Drawing.Point(275, 80)
 $Button5.Size = New-Object System.Drawing.Size(100, 40)
 
+$Button6 = New-Object System.Windows.Forms.Button
+$Button6.Text = "Toggle Transparency"
+$Button6.Location = New-Object System.Drawing.Point(275, 120)
+$Button6.Size = New-Object System.Drawing.Size(100, 40)
+
 $Button.Add_Click({
     Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name SystemUsesLightTheme -Value 1 -Type Dword -Force
     Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value 1 -Type Dword -Force
@@ -97,6 +102,16 @@ $Button5.Add_Click({
     [System.Windows.Forms.MessageBox]::Show("Dark mode wallpaper should be set, please wait! (Note: Your taskbar will return soon!)", "Message", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
 })
 
+$Button6.Add_Click({
+    if ((Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "EnableTransparency" -ErrorAction Stop)."EnableTransparency" -eq 1) {
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "EnableTransparency" -Value 0 -Force
+        [System.Windows.Forms.MessageBox]::Show("Transparency effects turned off!", "Message", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
+    } else {
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "EnableTransparency" -Value 1 -Force
+        [System.Windows.Forms.MessageBox]::Show("Transparency effects turned on!", "Message", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
+    }
+})
+
 $Form.Controls.Add($Label2)
 $Form.Controls.Add($Label)
 $Form.Controls.Add($Button)
@@ -104,5 +119,6 @@ $Form.Controls.Add($Button2)
 $Form.Controls.Add($Button3)
 $Form.Controls.Add($Button4)
 $Form.Controls.Add($Button5)
+$Form.Controls.Add($Button6)
 
 $Form.ShowDialog()
