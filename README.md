@@ -1,7 +1,7 @@
 # SchoolTools
 ### By Nerdiest
 #### _Because personalization shouldn't be blocked_
-
+> Note: You are currently viewing the testing branch. Expect bugs if ran!
 ## About
 
 SchoolTools is an app built in PowerShell aiming to allow the user to change between light and dark mode, as well as change the wallpaper.
